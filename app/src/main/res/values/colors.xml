@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="brown">#808080</color>
+    <color name="leaf_tint">#05CA05</color>
+    <color name="background_color_frame_layout">#FFFFFF</color>
+    <color name="background_color">#f0f4f9</color>
 </resources>

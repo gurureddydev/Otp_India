@@ -1,46 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/background_color"
+    tools:context=".ui.MainActivity">
 
-    <!-- Splash ImageView -->
+    <!-- Icon Image View initially visible -->
     <ImageView
-        android:id="@+id/splashImg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Add ProgressBar below WebView -->
-    <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/iconImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="visible"
-        android:layout_marginTop="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/logo" />
 
-    <!-- WebView -->
-    <WebView
-        android:id="@+id/webView"
+    <!-- FrameLayout initially visible -->
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iconImageView"
+        android:layout_marginHorizontal="40dp"
+        android:background="@drawable/background_shape">
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/horizontalProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_14_dp"
+            android:layout_marginHorizontal="@dimen/size_20_dp"
+            android:layout_marginVertical="@dimen/size_20_dp"
+            android:progressDrawable="@drawable/progress_bar_horizontal" />
+
+        <!-- Leaf ImageView -->
+        <ImageView
+            android:id="@+id/leafImageView"
+            android:layout_width="@dimen/size_60_dp"
+            android:layout_height="@dimen/size_52_dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/leaf"
+            app:tint="@color/leaf_tint" />
+
+    </FrameLayout>
+
+    <!-- WebView initially invisible -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/webViewContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:visibility="gone">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/circular_pb"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:progressDrawable="@drawable/progress_bar_horizontal"
+            android:progressTintMode="@color/leaf_tint"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/size_20_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.otp.otpindia.ui
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.OnBackPressedDispatcherOwner
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity(), OnBackPressedDispatcherOwner {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         initializeUI()
     }
 

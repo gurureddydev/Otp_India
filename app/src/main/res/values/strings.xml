@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Otp India</string>
     <string name="logo">logo</string>
-    <string name="default_url">https://github.com/gurureddydev</string>
-    <string name="no_internet">No Internet Connectivity</string>
+    <string name="press_back_again_to_exit">Press back again to exit.</string>
 </resources>
